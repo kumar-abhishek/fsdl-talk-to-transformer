@@ -1,4 +1,4 @@
-# Guitar-Chords-recognition
+# Talk-To-Transformer
 An application that predicts the chords when melspectrograms of guitar sound is fed into a CNN.
 
 ## Setting up the project
@@ -6,8 +6,8 @@ An application that predicts the chords when melspectrograms of guitar sound is 
 ### 1. Clone the repo
 
 ```console
-$ git clone https://github.com/ayushkumarshah/Guitar-Chords-recognition.git
-$ cd Guitar-Chords-recognition
+$ git clone https://github.com/kumar-abhishek/fsdl-talk-to-transformer
+$ cd fsdl-talk-to-transformer
 ```
 
 If you are using linux system, switch to linux branch:
@@ -126,7 +126,7 @@ It uses the trained model `models/model.json` to predict a recorded guitar chord
     DEFAULT_SAMPLE_RATE = 44100   # Default sample rate of microphone or recording device
     ```
 
-## Running the Guitar Chords Recognition Webapp
+## Running the Talk to Transformer Webapp
 
 - Execute the python file `app.py` using streamlit
 
@@ -198,8 +198,8 @@ $ python -m src.test
 ```
 
 ## Report Issues 
-If you have any issues with the app, please report it here: [Issues](https://github.com/ayushkumarshah/Guitar-Chords-recognition/issues)
+If you have any issues with the app, please report it here: [Issues](https://github.com/ayushkumarshah/Talk-To-Transformer/issues)
 
 ## License
 
-Guitar-Chords-recognition is licensed under the [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html) license.
+Talk-To-Transformer is licensed under the [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html) license.
