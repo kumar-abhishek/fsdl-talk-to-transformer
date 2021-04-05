@@ -170,4 +170,5 @@ dependencies:
     - werkzeug==1.0.1
     - transformers==4.4.2
     - torch==1.8.1
+    - azure-cognitiveservices-speech==1.16.0
 prefix: /Users/ayushkumarshah/miniconda3/envs/tf

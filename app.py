@@ -11,6 +11,7 @@ from src.model import CNN
 from setup_logging import setup_logging
 from src.speech2text import speech2text
 from src.generate_text import generate_text
+from src.text2speech import text2speech
 
 setup_logging()
 logger = logging.getLogger('app')
@@ -73,7 +74,10 @@ def main():
     
     st.write("Generating text using Transformer model: \n")
 
-    st.write(generate_text(input_text))
+    gen_txt = generate_text(input_text)
+    st.write(gen_txt)
+
+    text2speech(gen_txt)
 
     # if st.button('Classify'):
     #     cnn = init_model()
