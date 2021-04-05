@@ -5,6 +5,7 @@ https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-sta
 """ 
 import base64
 import requests
+import streamlit as st
 
 # Creates a speech synthesizer using the default speaker as audio output.
 # speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config)
@@ -65,22 +66,12 @@ def run(text, options, path):
             "name": "en-GB-Standard-A"
         }
     }
-
     headers = {
         'x-origin': 'https://explorer.apis.google.com'
     }
-
-    # if options['profile'] != 'default':
-        # payload["audioConfig"]["effectsProfileId"] = [options['profile']]
-
-    # r = requests.post("https://texttospeech.googleapis.com/v1/text:synthesize?key=AIzaSyAa8yy0GdcGPHdtD083HiGGx_S0vMPScDM", headers=headers, json=payload)
     r = requests.post("https://texttospeech.googleapis.com/v1/text:synthesize?key=AIzaSyCwFLG0eG225i0yV-OxSEKODkw4pih_DAI", headers=headers, json=payload)
-
     r.raise_for_status()
-
     data = r.json()
-    print("data is: ")
-    print(data)
     encoded = data['audioContent']
     audio_content = base64.b64decode(encoded)
 
@@ -94,3 +85,11 @@ def text2speech(input_text):
     text = "How are you doing? Type some text that you want to speak..."
 
     run(text, options(), "test.mp3")
+
+    if st.button('Play generated text'):
+        try:
+            audio_file = open("test.mp3", 'rb')
+            audio_bytes = audio_file.read()
+            st.audio(audio_bytes, format='audio/wav')
+        except:
+            st.write("Please record sound first")
