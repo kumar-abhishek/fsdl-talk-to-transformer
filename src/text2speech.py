@@ -93,27 +93,4 @@ def text2speech(input_text):
     print("Type some text that you want to speak...")
     text = "How are you doing? Type some text that you want to speak..."
 
-    run(text, options(), "/Users/kabhishek/Documents/fsdl-talk-to-transformer/test.mp3")
-
-    # curl 'https://translate.google.com/translate_tts?ie=UTF-8&q=Hello%20Everyone&tl=en&client=tw-ob' -H 'Referer: http://translate.google.com/' -H 'User-Agent: stagefright/1.2 (Linux;Android 5.0)' > google_tts.mp3
-
-    # import requests
-    # url = 'https://translate.google.com/translate_tts?ie=UTF-8&q={}&tl=en&client=tw-ob'.format(text)
-    # # payload = open("request.json")
-    # headers = {"User-Agent": "stagefright/1.2 (Linux;Android 5.0)", "Referer": "http://translate.google.com/"}
-    # r = requests.post(url, headers=headers)
-    # r.text
-
-    # Synthesizes the received text to speech.
-    # The synthesized speech is expected to be heard on the speaker with this line executed.
-    # speech_synthesizer.speak_text_async(text).get()
-
-    # audio_config = AudioOutputConfig(use_default_speaker=True)
-
-
-    # for writing to a file
-    # audio_config = AudioOutputConfig(filename="path/to/write/file.wav")
-    # synthesizer = SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
-    # synthesizer.speak_text_async("A simple test to write to a file.")
-
-    # audio_config = AudioOutputConfig(use_default_speaker=True)
+    run(text, options(), "test.mp3")
