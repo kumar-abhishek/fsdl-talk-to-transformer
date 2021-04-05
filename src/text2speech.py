@@ -59,7 +59,7 @@ def run(text, options, path):
             "audioEncoding": "MP3",
         },
         "input": {
-            "text":"Android is a mobile operating system developed by Google, based on the Linux kernel and designed primarily for touchscreen mobile devices such as smartphones and tablets"
+            "text": text
         },
         "voice": {
             "languageCode": 'en-gb',
