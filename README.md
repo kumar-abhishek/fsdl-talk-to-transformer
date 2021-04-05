@@ -137,9 +137,7 @@ It uses the trained model `models/model.json` to predict a recorded guitar chord
 - The webapp is launched in your browser and opened automatically as shown below. You may also open it by visiting [http://localhost:8501](http://localhost:8501)
 
     <div align = 'center'>
-        <a href = 'https://www.youtube.com/watch?v=KJ4sJupEfpg'>
-            <img src = 'output/images/webapp.gif' alt = 'App demo. Click to go to YouTube!' >
-        </a>
+        <img src = 'output/images/shot.png' alt = 'App demo' >
     </div>
 
     > Click the above video to to go to YouTube and hear the sound as well.
