@@ -1,3 +1,4 @@
+credits: Heavily influenced from [this repo](https://github.com/ayushkumarshah/Guitar-Chords-recognition)
 # Talk-To-Transformer
 An application that predicts the chords when melspectrograms of guitar sound is fed into a CNN.
 
