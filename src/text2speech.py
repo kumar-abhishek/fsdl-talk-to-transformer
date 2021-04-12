@@ -81,7 +81,7 @@ def run(text, options, mp3filename):
 
 def text2speech(input_text):
     # Receives a text from console input.
-    input_text = input_text[0]['generated_text']
+    #input_text = input_text[0]['generated_text']
 
     if st.button('Play generated text'):
         try:
