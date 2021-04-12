@@ -1,3 +1,4 @@
+credits: Heavily influenced from [this repo](https://github.com/ayushkumarshah/Guitar-Chords-recognition)
 # Talk-To-Transformer
 An application that predicts the chords when melspectrograms of guitar sound is fed into a CNN.
 
@@ -142,13 +143,11 @@ It uses the trained model `models/model.json` to predict a recorded guitar chord
 
     > Click the above video to to go to YouTube and hear the sound as well.
 
-- Click `Record` and play a chord in your guitar. It records for 3 seconds and saves the output wav file to `recording/recorded.wav`. 
+- Click `Record` and say something. It records for 5 seconds(configurable) and saves the output wav file to `recording/recorded.wav`. 
 
-- Click `Play` to listen to the recorded sound. 
+- Click `Play` to listen to the recorded speech. 
 
-- Click `Classify` to view the predicted chord along with the melspectrogram of the recorded chord.
-
-- Click `Display Spectrogram` to display the spectrogram of the recorded chord.
+- Click `Play generated text` to play the generated text
 
 ## Training the model (Optional)
 
@@ -157,7 +156,7 @@ below:
 
 ### 1. Download the Dataset or Use your own dataset
 
-The chords dataset was collected from MONTEFIORE RESEARCH GROUP of University of Liège - Montefiore Institute (Montefiore.ulg.ac.be, 2019). The chords dataset consists of 10 types of chords with 200 audio files of each chord.
+The dataset was collected from ....
 
 Run download_data.sh to download the dataset:
 
@@ -196,7 +195,7 @@ $ python -m src.test
 ```
 
 ## Report Issues 
-If you have any issues with the app, please report it here: [Issues](https://github.com/ayushkumarshah/Talk-To-Transformer/issues)
+If you have any issues with the app, please report it here: [Issues](https://github.com/kumar-abhishek/fsdl-talk-to-transformer/issues)
 
 ## License
 
