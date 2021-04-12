@@ -22,7 +22,11 @@ $ cd fsdl-talk-to-transformer
 
 - Create a new environment 'tf' using the following command:
 
+
     ```console
+    # if you need to install conda
+    eval "$(/root/miniconda3/bin/conda shell.bash hook)" 
+    
     $ conda env create -f environment.yml
 
     # to update the environment, make sure have already activated the environment
