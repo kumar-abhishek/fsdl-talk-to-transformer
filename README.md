@@ -24,7 +24,7 @@ $ cd fsdl-talk-to-transformer
 
 
     ```console
-    # if you need to install conda
+    # if you need to install conda on ubuntu/debian based OS
     eval "$(/root/miniconda3/bin/conda shell.bash hook)" 
     
     $ conda env create -f environment.yml
