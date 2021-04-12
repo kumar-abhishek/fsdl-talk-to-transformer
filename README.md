@@ -1,6 +1,6 @@
 credits: Heavily influenced from [this repo](https://github.com/ayushkumarshah/Guitar-Chords-recognition)
 # Talk-To-Transformer
-An application that predicts the chords when melspectrograms of guitar sound is fed into a CNN.
+An application that talks back to you when you seed it with some words. Under the hood, a transformer model is used for text generation. 
 
 ## Setting up the project
 
