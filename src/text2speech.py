@@ -77,25 +77,17 @@ def run(text, options, mp3filename):
     audio_content = base64.b64decode(encoded)
 
     with open(mp3filename, 'wb') as response_output:
-        print("writing speech to mp3filename: "+ mp3filename)
         response_output.write(audio_content)
-        # st.audio(audio_bytes, format='audio/wav')
 
 def text2speech(input_text):
     # Receives a text from console input.
-    print("\ninput_text:")
-    print(input_text)
     input_text = input_text[0]['generated_text']
-    print("\nafter parsing input_text:")
-    print(input_text)
 
-    if st.checkbox('Play generated text'):
+    if st.button('Play generated text'):
         try:
-            print("here1")
             run(input_text, options(), "test.mp3")
             audio_file = open("test.mp3", 'rb')
             audio_bytes = audio_file.read()
             st.audio(audio_bytes, format='audio/wav')
-            print("here2")
         except Exception as ex:
             st.write("Internal exception occured!" + ex)

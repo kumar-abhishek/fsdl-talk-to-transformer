@@ -73,37 +73,17 @@ def main():
                 except:
                     st.write("Please record sound first")
 
-        st.write("Here is what you spoke:\n")
+        st.subheader("Here is what you spoke:\n")
         if record_button_clicked:
             session_state.input_text = speech2text(WAVE_OUTPUT_FILE)
         st.write(session_state.input_text)
         
-        st.write("Generating text using Transformer model: \n")
+        st.subheader("Generating text using Transformer model: \n")
         if record_button_clicked:
             session_state.gen_txt = generate_text(session_state.input_text)
-        st.write(session_state.gen_txt)
+        st.write(session_state.gen_txt[0]['generated_text'])
 
         text2speech(session_state.gen_txt)
-
-    # if st.button('Classify'):
-    #     cnn = init_model()
-    #     with st.spinner("Classifying the chord"):
-    #         chord = cnn.predict(WAVE_OUTPUT_FILE, False)
-    #     st.success("Classification completed")
-    #     st.write("### The recorded chord is **", chord + "**")
-    #     if chord == 'N/A':
-    #         st.write("Please record sound first")
-    #     st.write("\n")
-
-    # # Add a placeholder
-    # if st.button('Display Spectrogram'):
-    #     # type = st.radio("Scale of spectrogram:",
-    #     #                 ('mel', 'DB'))
-    #     if os.path.exists(WAVE_OUTPUT_FILE):
-    #         spectrogram, format = get_spectrogram(type='mel')
-    #         display(spectrogram, format)
-    #     else:
-    #         st.write("Please record sound first")
 
 if __name__ == '__main__':
     main()
