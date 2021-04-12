@@ -6,8 +6,12 @@ Original file is located at
 """
 
 import librosa
+import os
 import torch
 from transformers import Wav2Vec2ForCTC, Wav2Vec2Tokenizer
+
+# to disable TOKENIZERS_PARALLELISM=(true | false) warning
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 #load pre-trained model and tokenizer
 tokenizer = Wav2Vec2Tokenizer.from_pretrained("facebook/wav2vec2-base-960h")

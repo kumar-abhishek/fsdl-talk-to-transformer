@@ -4,6 +4,7 @@ import streamlit as st
 import numpy as np
 import librosa, librosa.display
 import matplotlib.pyplot as plt
+import SessionState
 from PIL import Image
 from settings import IMAGE_DIR, DURATION, WAVE_OUTPUT_FILE
 from src.sound import sound
@@ -12,6 +13,7 @@ from setup_logging import setup_logging
 from src.speech2text import speech2text
 from src.generate_text import generate_text
 from src.text2speech import text2speech
+from streamlit import caching
 
 setup_logging()
 logger = logging.getLogger('app')
@@ -44,7 +46,6 @@ def display(spectrogram, format):
 def main():
     col1, mid, col2 = st.beta_columns([10,1,10])
     with col1:
-        # st.image('row_2_col_1.jpg', width=60)
         image = Image.open(os.path.join(IMAGE_DIR, 'speak.jpg'))
         st.image(image, width=200)
     with col2:
@@ -54,30 +55,35 @@ def main():
     title = "Talk to Transformer"
     st.title(title)
 
-    if st.button('Record'):
-        with st.spinner(f'Recording for {DURATION} seconds ....'):
-            sound.record()
-        st.success("Recording completed")
+    session_state = SessionState.get(name="", button_sent=False)
+    record_button_clicked = st.button('Record')
+    if record_button_clicked or session_state.button_sent: # <-- first time is button interaction, next time use state:
+        st.empty()
+        session_state.button_sent = True
+        if record_button_clicked:
+            with st.spinner(f'Recording for {DURATION} seconds ....'):
+                sound.record()
+            st.success("Recording completed")
 
-    if st.button('Play'):
-        # sound.play()
-        try:
-            audio_file = open(WAVE_OUTPUT_FILE, 'rb')
-            audio_bytes = audio_file.read()
-            st.audio(audio_bytes, format='audio/wav')
-        except:
-            st.write("Please record sound first")
+            if st.button('Play'):
+                try:
+                    audio_file = open(WAVE_OUTPUT_FILE, 'rb')
+                    audio_bytes = audio_file.read()
+                    st.audio(audio_bytes, format='audio/wav')
+                except:
+                    st.write("Please record sound first")
 
-    st.write("Here is what you spoke:\n")
-    input_text = speech2text(WAVE_OUTPUT_FILE)
-    st.write(input_text)
-    
-    st.write("Generating text using Transformer model: \n")
+        st.write("Here is what you spoke:\n")
+        if record_button_clicked:
+            session_state.input_text = speech2text(WAVE_OUTPUT_FILE)
+        st.write(session_state.input_text)
+        
+        st.write("Generating text using Transformer model: \n")
+        if record_button_clicked:
+            session_state.gen_txt = generate_text(session_state.input_text)
+        st.write(session_state.gen_txt)
 
-    gen_txt = generate_text(input_text)
-    st.write(gen_txt)
-
-    text2speech(gen_txt)
+        text2speech(session_state.gen_txt)
 
     # if st.button('Classify'):
     #     cnn = init_model()
