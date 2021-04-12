@@ -11,12 +11,6 @@ $ git clone https://github.com/kumar-abhishek/fsdl-talk-to-transformer
 $ cd fsdl-talk-to-transformer
 ```
 
-If you are using linux system, switch to linux branch:
-
-```console
-$ git checkout linux
-```
-
 ### 2. Installation
 
 > You can install the required packages using any **`one of the 3 options`** below. However, **`Option 1`** is recommended.
