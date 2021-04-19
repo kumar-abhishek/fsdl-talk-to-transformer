@@ -50,4 +50,5 @@ def generate_text(string, possibilities=1):
         top_k=50,
         top_p=0.95,
         num_return_sequences=possibilities)
-    return [tokenizer.decode(sample, skip_special_tokens=True) for sample in sampling_outputs][0]
+    txt = [tokenizer.decode(sample, skip_special_tokens=True) for sample in sampling_outputs][0]
+    return txt[:txt.rfind('.')+1]
