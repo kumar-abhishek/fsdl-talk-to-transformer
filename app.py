@@ -82,7 +82,6 @@ def main():
         if record_button_clicked:
             session_state.gen_txt = generate_text(session_state.input_text)
         st.write(session_state.gen_txt)
-        # st.write(session_state.gen_txt[0]['generated_text'])
 
         text2speech(session_state.gen_txt)
 
