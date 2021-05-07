@@ -48,6 +48,25 @@ $ cd fsdl-talk-to-transformer
     $ conda activate tf
     ```
 
+    If you get the error "espeak not installed on the system", run the following command
+    ```
+    sudo port install espeak
+    # if you don't have port installed, please install it first: https://www.macports.org/
+    ```
+
+    If above has some issues, you would likely have to install from source(mac instructions):
+    [Source credits](https://www.gitmemory.com/issue/hgneng/ekho/37/751537308)
+    ```
+    $ clone this repo locally: # https://github.com/espeak-ng/espeak-ng/blob/master/docs/building.md#linux-mac-bsd
+    $ cd espeak-ng
+    $ glibtoolize -c
+    $ ./autogen.sh
+    $ ./configure --prefix=/usr/local
+    $ make
+    $ make install
+    ```
+
+
 ### Option 2: Using setup.sh
 
 - If you face trouble installing packages, you may install using `setup.sh`. If you use bash shell instead of zsh, edit

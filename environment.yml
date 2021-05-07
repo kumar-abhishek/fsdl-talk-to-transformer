@@ -171,4 +171,5 @@ dependencies:
     - transformers==4.4.2
     - torch==1.8.1
     - TTS==0.0.12
+    - py-espeak-ng==0.1.8
 prefix: /Users/ayushkumarshah/miniconda3/envs/tf

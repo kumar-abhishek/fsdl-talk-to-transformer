@@ -37,7 +37,7 @@ CLASSES = ['a', 'am', 'bm', 'c', 'd', 'dm', 'e', 'em', 'f', 'g']
 CLASSES_MAP = {'a':0, 'am':1, 'bm':2, 'c':3, 'd':4, 'dm':5, 'e':6, 'em':7, 'f':8, 'g':9}
 
 # Audio configurations
-INPUT_DEVICE = 0
+INPUT_DEVICE = 3
 MAX_INPUT_CHANNELS = 1  # Max input channels
 DEFAULT_SAMPLE_RATE = 44100   # Default sample rate of microphone or recording device
 DURATION = 5   # 5 seconds

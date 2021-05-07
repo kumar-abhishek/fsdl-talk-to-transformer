@@ -76,7 +76,14 @@ def main():
         st.subheader("Here is what you spoke:\n")
         if record_button_clicked:
             session_state.input_text = speech2text(WAVE_OUTPUT_FILE)
-        st.write(session_state.input_text)
+        
+        print("\nsession_State:", session_state)
+        
+        if session_state.input_text:
+            st.write(session_state.input_text)
+        else:
+            st.write("You didn't say anything, you gotta say something!")
+            st.stop()
         
         st.subheader("Generating text using Transformer model: \n")
         if record_button_clicked:

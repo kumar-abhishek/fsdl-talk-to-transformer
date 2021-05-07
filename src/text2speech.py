@@ -13,6 +13,7 @@ def text2speech(input_text):
     synthesizer = torch.hub.load('coqui-ai/TTS:dev', 
                                 'tts', 
                                 source='github')
+    print('input_text is: ', input_text)                                
     wav = synthesizer.tts(input_text)
     audio_obj = IPython.display.Audio(wav, rate=synthesizer.ap.sample_rate)
     with open(WAVE_OUTPUT_FILE, 'wb') as f:

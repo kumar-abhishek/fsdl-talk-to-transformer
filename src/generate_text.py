@@ -50,5 +50,13 @@ def generate_text(string, possibilities=1):
         top_k=50,
         top_p=0.95,
         num_return_sequences=possibilities)
-    txt = [tokenizer.decode(sample, skip_special_tokens=True) for sample in sampling_outputs][0]
-    return txt[:txt.rfind('.')+1]
+    all = [tokenizer.decode(sample, skip_special_tokens=True) for sample in sampling_outputs]
+    print('\nall: ')
+    print(all)
+    txt = all[0]
+    # return txt
+    # remove incomplete sentences
+    if txt.rfind('. ') != -1:
+        return txt[:txt.rfind('. ')+1]
+    else:
+        return txt
