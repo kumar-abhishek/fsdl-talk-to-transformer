@@ -34,7 +34,7 @@ def generate_text(string, possibilities=1):
     final_prediction = None
     # remove bad predictions:
     for prediction in all_predictions:
-        if prediction is None or '' or '\n\n\n\n\n' in prediction or prediction.count('.')>5:
+        if prediction is None or '' or prediction.endswith('\n\n\n\n\n') or prediction.count('.')>5:
             continue
         else:
             if '.' in prediction: # remove incomplete sentence in the end
