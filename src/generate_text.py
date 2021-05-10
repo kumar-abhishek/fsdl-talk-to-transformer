@@ -2,30 +2,8 @@
 """
 Text generation using transformer model
 Reference: https://www.kaggle.com/tuckerarrants/text-generation-with-huggingface-gpt2#II.-Different-Decoding-Methods
-""" 
-
-# #get deep learning basics
-# import tensorflow as tf
-# from transformers import TFGPT2LMHeadModel, GPT2Tokenizer
-# from transformers import pipeline, set_seed
-
-
-# #for reproducability
-# SEED = 34
-# #maximum number of words in output text
-# MAX_LEN = 150
-
-# def generate_text(start_text):
-#     generator = pipeline('text-generation', model='gpt2')
-#     set_seed(42)
-#     return generator(start_text, max_length=MAX_LEN, num_return_sequences=1)
-
-# def generate_text(start_text):
-#     generator = pipeline('text-generation', model='distilgpt2')
-#     set_seed(42)
-#     return generator(start_text, max_length=MAX_LEN, num_return_sequences=1)    
-
 # https://github.com/marcalph/textnets/blob/4327a86b56ecf346bd43619ee0f0e0285563c338/src/compose/baseline.py
+"""
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
 import torch
 torch.manual_seed(42)
