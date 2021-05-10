@@ -1,4 +1,3 @@
-credits: Heavily influenced from [this repo](https://github.com/ayushkumarshah/Guitar-Chords-recognition)
 # Talk-To-Transformer
 An application that talks back to you when you seed it with some words. Under the hood, a transformer model is used for text generation. 
 
@@ -80,9 +79,7 @@ $ cd fsdl-talk-to-transformer
     $ pip install -r requirements.txt
     ```
 
-## Configuring the Chords Classifier App (classifier.py)
-
-It uses the trained model `models/model.json` to predict a recorded guitar chord.
+## Configuring the App (settings.py)
 
 - First, check the info of the audio recording device of your system by running
 
@@ -198,3 +195,5 @@ If you have any issues with the app, please report it here: [Issues](https://git
 ## License
 
 Talk-To-Transformer is licensed under the [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html) license.
+
+credits: Heavily influenced from [this repo](https://github.com/ayushkumarshah/Guitar-Chords-recognition)
