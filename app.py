@@ -61,6 +61,7 @@ def main():
         st.empty()
         session_state.button_sent = True
         if record_button_clicked:
+            # you can get some voice samples from here: https://huggingface.co/facebook/wav2vec2-base-960h
             with st.spinner(f'Recording for {DURATION} seconds ....'):
                 sound.record()
             st.success("Recording completed")
@@ -76,9 +77,14 @@ def main():
         st.subheader("Here is what you spoke:\n")
         if record_button_clicked:
             session_state.input_text = speech2text(WAVE_OUTPUT_FILE)
+            session_state.input_text = session_state.input_text.capitalize()
+            for question_str in ['Which ', 'Why ', 'Who ', 'Whose ', 'Whom ', 'What ', 'How ']: 
+                if session_state.input_text.startswith(question_str):
+                    session_state.input_text += '?'
+                    break
         st.write(session_state.input_text)
         
-        st.subheader("Generating text using Transformer model: \n")
+        st.subheader("Generating text using Transformer(DistilGPT2) model: \n")
         if record_button_clicked:
             session_state.gen_txt = generate_text(session_state.input_text)
         st.write(session_state.gen_txt)

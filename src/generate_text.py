@@ -46,9 +46,29 @@ def generate_text(string, possibilities=1):
     sampling_outputs = model.generate(
         input,
         do_sample=True,
-        max_length=50,
+        max_length=100,
         top_k=50,
         top_p=0.95,
-        num_return_sequences=possibilities)
-    txt = [tokenizer.decode(sample, skip_special_tokens=True) for sample in sampling_outputs][0]
-    return txt[:txt.rfind('.')+1]
+        num_return_sequences=3)
+    all_predictions = [tokenizer.decode(sample, skip_special_tokens=True) for sample in sampling_outputs]
+    print("all_predictions: ")
+    print(all_predictions)
+    final_prediction = None
+    # remove bad predictions:
+    for prediction in all_predictions:
+        if prediction is None or '' or '\n\n\n\n\n' in prediction or prediction.count('.')>5:
+            continue
+        else:
+            if '.' in prediction: # remove incomplete sentence in the end
+                 prediction = prediction[:prediction.rfind('.')+1]
+            final_prediction = prediction
+            break
+
+    print('\nbefore: final_prediction:' + final_prediction)
+
+    # add some dummy prediction            
+    if not final_prediction:
+        final_prediction = "Sorry, I can't relate to what you said really!"
+    else:
+        print('\nfinal_prediction:' + final_prediction)
+    return final_prediction

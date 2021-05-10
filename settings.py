@@ -39,6 +39,6 @@ CLASSES_MAP = {'a':0, 'am':1, 'bm':2, 'c':3, 'd':4, 'dm':5, 'e':6, 'em':7, 'f':8
 # Audio configurations
 INPUT_DEVICE = 0
 MAX_INPUT_CHANNELS = 1  # Max input channels
-DEFAULT_SAMPLE_RATE = 44100   # Default sample rate of microphone or recording device
+DEFAULT_SAMPLE_RATE = 48000   # Default sample rate of microphone or recording device
 DURATION = 5   # 5 seconds
 CHUNK_SIZE = 1024
