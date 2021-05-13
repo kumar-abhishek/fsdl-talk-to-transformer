@@ -1,5 +1,15 @@
 # Talk-To-Transformer
+
+## Introduction
 An application that talks back to you when you seed it with some words. Under the hood, a transformer model is used for text generation. 
+
+This app does these 3 things in sequence:
+1. Converts speech to text using [Wave2Vec](https://huggingface.co/transformers/model_doc/wav2vec2.html) model from Hunggingface
+2. Text generation using [DistilGPT-2](https://huggingface.co/distilgpt2), which is another model from Huggingface library
+3. Converts text to speech using the Tacotron model from [Coqui library](https://github.com/coqui-ai/TTS)
+
+## What can this app do?
+This app is inspired from the [pre-existing web-app](https://app.inferkit.com/demo), which is a text only version. This app takes it to the next level where you can talk and listen to the generated text.
 
 ## Setting up the project
 
@@ -12,7 +22,9 @@ $ cd fsdl-talk-to-transformer
 
 ### 2. Installation
 
-> You can install the required packages using any **`one of the 3 options`** below. However, **`Option 1`** is recommended.
+> You can install the required packages using any **`one of the 3 options`** below. However, **`Option 1`** is well tested and recommended. If you have to use other options, you would likely have to tweak the list of versions/packages in environment.yml from Option 1. 
+
+Please also note that since this has been developed and tested on a Mac OS, you may encounter some minor installation issues on other operating systems.
 
 ### Option 1: Using Conda - Recommended
 
@@ -146,10 +158,11 @@ $ cd fsdl-talk-to-transformer
 
 ## Training the model (Optional)
 
-If you want to experiment by training the model yourself with your own data or the data used currently, follow the steps
+If you want to experiment by training the model used for text generation(in generate_text.py file) yourself with your own data or the data used currently, follow the steps
 below:
 
-### Open the file notebooks/train_text_generator.ipynb in Google Colab(link at the top of the file) and run all the cells.
+- Open the file notebooks/train_text_generator.ipynb in Google Colab(link at the top of the file) and run all the cells.
+- You would have to save the trained model and use that model in generate_text.py instead of using the pre-trained model from huggingface library.
 
 ## Report Issues 
 If you have any issues with the app, please report it here: [Issues](https://github.com/kumar-abhishek/fsdl-talk-to-transformer/issues)
