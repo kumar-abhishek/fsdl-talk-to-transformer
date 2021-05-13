@@ -149,45 +149,7 @@ $ cd fsdl-talk-to-transformer
 If you want to experiment by training the model yourself with your own data or the data used currently, follow the steps
 below:
 
-### 1. Download the Dataset or Use your own dataset
-
-The dataset was collected from ....
-
-Run download_data.sh to download the dataset:
-
-```console
-$ chmod +x download_data.sh
-$ ./download_data.sh
-```
-
-### 2. Run `train.py`
-
-```console
-$ python -m src.train
-```
-
->You can view the training logs in the file `logs/info.log`
-
-To view the real-time tensorboard logging, type the command:
-
-```console
-$ tensorboard --logdir logs/training
-```
-
-Then open your browser and goto [localhost:6006](http://localhost:6006) to
-visualize the training.
-
-You will see something like this:
-
-![Tensorboard](output/images/tensorboard.png)
-
-### 3. Run `test.py`
-
-You can test the performance of your model after the training by running:
-
-```conosle
-$ python -m src.test
-```
+### Open the file notebooks/train_text_generator.ipynb in Google Colab(link at the top of the file) and run all the cells.
 
 ## Report Issues 
 If you have any issues with the app, please report it here: [Issues](https://github.com/kumar-abhishek/fsdl-talk-to-transformer/issues)
