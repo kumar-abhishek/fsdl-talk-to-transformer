@@ -145,10 +145,8 @@ Please also note that since this has been developed and tested on a Mac OS, you 
 - The webapp is launched in your browser and opened automatically as shown below. You may also open it by visiting [http://localhost:8501](http://localhost:8501)
 
     <div align = 'center'>
-        <img src = 'output/images/shot.png' alt = 'App demo' >
+        <img src = 'output/images/webapp.gif' alt = 'Talk to Transformer App demo.' >
     </div>
-
-    > Click the above video to to go to YouTube and hear the sound as well.
 
 - Click `Record` and say something. It records for 5 seconds(configurable) and saves the output wav file to `recording/recorded.wav`. 
 
