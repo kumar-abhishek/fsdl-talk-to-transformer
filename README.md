@@ -4,7 +4,7 @@
 An application that talks back to you when you seed it with some words. Under the hood, a transformer model is used for text generation. 
 
 This app does these 3 things in sequence:
-1. Converts speech to text using [Wave2Vec](https://huggingface.co/transformers/model_doc/wav2vec2.html) model from Hunggingface
+1. Converts speech to text using [Wave2Vec](https://huggingface.co/transformers/model_doc/wav2vec2.html) model from Huggingface
 2. Text generation using [DistilGPT-2](https://huggingface.co/distilgpt2), which is another model from Huggingface library
 3. Converts text to speech using the Tacotron model from [Coqui library](https://github.com/coqui-ai/TTS)
 
