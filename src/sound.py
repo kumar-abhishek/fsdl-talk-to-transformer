@@ -3,13 +3,10 @@ import pyaudio, wave, pylab
 import numpy as np
 import librosa, librosa.display
 import matplotlib.pyplot as plt
-# from pygame import mixer
 from scipy.io.wavfile import write
 from settings import DURATION, DEFAULT_SAMPLE_RATE, MAX_INPUT_CHANNELS, \
                                     WAVE_OUTPUT_FILE, INPUT_DEVICE, CHUNK_SIZE
 from setup_logging import setup_logging
-# import sounddevice as sd
-# import soundfile as sf
 
 setup_logging()
 logger = logging.getLogger('src.sound')
@@ -17,8 +14,6 @@ logger = logging.getLogger('src.sound')
 class Sound(object):
     def __init__(self):
         # Set default configurations for recording device
-        # sd.default.samplerate = DEFAULT_SAMPLE_RATE
-        # sd.default.channels = DEFAULT_CHANNELS
         self.format = pyaudio.paInt16
         self.channels = MAX_INPUT_CHANNELS
         self.sample_rate = DEFAULT_SAMPLE_RATE
@@ -75,41 +70,4 @@ class Sound(object):
         waveFile.close()
         logger.info(f"Recording saved to {self.path}")
 
-    # def play(self):
-    #     logger.info(f"Playing the recorded sound {self.path}")
-    #     mixer.init(self.sample_rate)
-    #     recording = mixer.Sound(self.path).play()
-    #     while recording.get_busy():
-    #         continue
-
 sound = Sound()
-
-    # def device_info(kind='input'):
-    #     keys = ['name', 'index', 'maxInputChannels', 'defaultSampleRate']
-    #     logger.info(f"{kind} device info:")
-    #     info_dict = sd.query_devices(kind=kind)
-    #     logger.info(([(key, value) for key, value in info_dict.items() if key in keys]))
-    #     print()
-
-    # def record(self):
-    #     logger.info(f"Recording started for {DURATION} seconds")
-    #     self.recording = sd.rec(int(DURATION * DEFAULT_SAMPLE_RATE), \
-    #                                             samplerate=DEFAULT_SAMPLE_RATE,
-    #                                             channels=DEFAULT_CHANNELS)
-    #     sd.wait()
-    #     logger.info("Recording completed")
-    #     self.save()
-
-    # def play(self):
-    #     logger.info(f"Playing the recorded sound {WAVE_OUTPUT_FILE}")
-    #     data, fs = sf.read(WAVE_OUTPUT_FILE, dtype='float32')
-    #     sd.play(data, fs, device=OUTPUT_DEVICE)
-    #     sd.wait()
-        # sd.play(self.recording)
-        # sd.wait()
-
-    # def save(self):
-    #     data = self.recording
-    #     scaled = np.int16(data/np.max(np.abs(data)) * 32767)
-    #     write(WAVE_OUTPUT_FILE, DEFAULT_SAMPLE_RATE, scaled)
-    #     logger.info(f"Recording saved to {WAVE_OUTPUT_FILE}")
